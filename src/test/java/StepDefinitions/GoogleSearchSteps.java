@@ -21,11 +21,9 @@ public class GoogleSearchSteps {
 	    
 	    String projectPath=System.getProperty("user.dir");
 	    System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
-	   
 	    driver= new ChromeDriver();
 	    // in case of slow network and objects loads slowly
 	    //driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);depricated
-	    //driver.manage().timeouts().pageLoadTimeout(40,TimeUnit.SECONDS);depricated
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
        // driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
         //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
