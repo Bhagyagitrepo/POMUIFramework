@@ -1,5 +1,6 @@
 Feature: Google search functionality
 
+  @smoketest
   Scenario: Validate google search is working successfully
     Given browser is open on device
     And user is on google search page
