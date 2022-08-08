@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GoogleSearchSteps {
 	
@@ -19,8 +20,10 @@ public class GoogleSearchSteps {
 	    System.out.println("inside step- browser is open ");
 	   //System.setProperty("webdriver.chrome.driver", "C:/Users/Bhagyashri/eclipse-workspace/QA/src/test/resources/drivers/chromedriver.exe");
 	    
-	    String projectPath=System.getProperty("user.dir");
-	    System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
+	    //String projectPath=System.getProperty("user.dir");
+	    //System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
+	    WebDriverManager.chromedriver().setup();
+	    
 	    driver= new ChromeDriver();
 	    // in case of slow network and objects loads slowly
 	    //driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);depricated

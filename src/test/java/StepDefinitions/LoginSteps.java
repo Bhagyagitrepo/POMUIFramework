@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginSteps  {
 	
@@ -18,10 +19,10 @@ public class LoginSteps  {
 	 public void user_is_on_login_page() throws InterruptedException{
 		
 		System.out.println("User inside login page");
-	    String projectPath=System.getProperty("user.dir");
-	    System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
-	   
-	    driver= new ChromeDriver();
+	    //String projectPath=System.getProperty("user.dir");
+	    //System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
+	     WebDriverManager.chromiumdriver().setup();
+	     driver= new ChromeDriver();
 	    
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         driver.manage().window().maximize();
@@ -65,7 +66,9 @@ public class LoginSteps  {
 	public void user_navigated_to_home_page() throws InterruptedException {
 		System.out.println("User navigates to Home page");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.findElement(By.xpath(".//*[@id=\":1e\"]"));
+		driver.findElement(By.xpath(".//*[@id=':1e']"));
+		driver.close();
+		
 	}
 
 }
